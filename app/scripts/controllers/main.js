@@ -8,7 +8,7 @@
  * Controller of the eventTrackingApp
  */
 angular.module('eventTrackingApp')
-    .controller("MainCtrl", ['$scope', '$timeout', '$mdToast', 'roundProgressService', function($scope, $timeout, $mdToast, roundProgressService) {
+    .controller("MainCtrl", ['$scope', '$timeout', '$mdToast', function($scope, $timeout, $mdToast) {
 
         $scope.user = {};
         $scope.selectedIndex = 0;
@@ -25,7 +25,7 @@ angular.module('eventTrackingApp')
             } else {
                 $scope.toastInvoke('Event hss been already added! Please reset to add again');
             }
-        }
+        };
 
         $scope.resetReport = function() {
             $scope.report = null;
@@ -33,7 +33,7 @@ angular.module('eventTrackingApp')
             $timeout(function() {
                 $scope.selectedIndex = 0;
             }, 500);
-        }
+        };
 
         $scope.toastInvoke = function(message) {
             $mdToast.show(
@@ -42,7 +42,7 @@ angular.module('eventTrackingApp')
                 .position('bottom right')
                 .hideDelay(3000)
             );
-        }
+        };
 
         //--Angular progress code starts here--//
         $scope.progressMax = 100;

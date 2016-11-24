@@ -5,6 +5,8 @@ version 0.15.1.
 
 ## Build & development
 
+Clone project and install npm and bower in root folder.
+
 Run `grunt` for building and `grunt serve` for preview.
 
 ## Testing
