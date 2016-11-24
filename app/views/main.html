@@ -1,0 +1,94 @@
+<div ng-cloak>
+    <md-content>
+        <md-tabs md-dynamic-height="" md-border-bottom="" md-selected="selectedIndex">
+            <md-tab label="Plan">
+                <md-content class="md-padding">
+                    <form id="user-form" name="userForm" ng-submit="formSubmit(user)">
+                        <div layout-gt-xs="row">
+                            <div flex="50" flex-sm="90" flex-xs="90" class="form-inner">
+                                <md-input-container layout="column">
+                                    <div layout="row">
+                                        <label>Name</label>
+                                        <input name="name" ng-model="user.name" required>
+                                    </div>
+                                    <div ng-messages="userForm.name.$error">
+                                        <div ng-message="required">Name is required.</div>
+                                    </div>
+                                </md-input-container>
+                                <md-input-container layout="column">
+                                    <div layout="row">
+                                        <label>Value</label>
+                                        <input type="number" name="value" ng-model="user.value" min="1" max="100" required>
+                                    </div>
+                                    <div ng-messages="userForm.value.$error">
+                                        <div ng-message-exp="['required', 'min', 'max']">
+                                            Value should be in between 1-100
+                                        </div>
+                                    </div>
+                                </md-input-container>
+                                <md-input-container layout="column" class="date-picker">
+                                    <div layout="row">
+                                        <label>Start Date</label>
+                                        <md-datepicker required name="startDate" md-max-date="user.endDate" ng-model="user.startDate" md-open-on-focus></md-datepicker>
+                                    </div>
+                                    <div ng-messages="userForm.startDate.$error">
+                                        <div class="dp-error" ng-message="required">Start date is required.</div>
+                                    </div>
+                                </md-input-container>
+                                <md-input-container layout="column" class="date-picker">
+                                    <div layout="row">
+                                        <label>End Date</label>
+                                        <md-datepicker required name="endDate" md-min-date="user.startDate" ng-model="user.endDate" md-open-on-focus></md-datepicker>
+                                    </div>
+                                    <div ng-messages="userForm.endDate.$error">
+                                        <div class="dp-error" ng-message="required">End date is required.</div>
+                                    </div>
+                                </md-input-container>
+                                <div layout="row" layout-align="center center">
+                                    <md-button type="submit" class="md-raised md-primary" ng-disabled="userForm.$invalid">Submit</md-button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </md-content>
+            </md-tab>
+            <md-tab label="Report">
+                <md-content class="md-padding">
+                    <form id="report-form" name="reportForm" layout-gt-sm="row" layout="column" flex="90" flex-gt-sm="100">
+                        <div flex="100" flex-gt-sm="50">
+                            <div class="progress-wrapper">
+                                <div ng-if="!report.value" class="progress ng-cloak" ng-style="getStyle()">0%</div>
+                                <div ng-if="report.value" class="progress ng-cloak" ng-style="getStyle()">{{report.value}}%</div>
+                                <round-progress max="progressMax" current="report.value" color="{{ getColor() }}" radius="{{ radius }}" stroke="{{ stroke }}" clockwise="clockwise" duration="{{ duration }}" animation="{{ currentAnimation }}" offset="{{ offset }}" animation-delay="{{ animationDelay }}" on-render="showPreciseCurrent">
+                                    <svg>
+                                        <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+                                            <stop offset="5%" stop-color="green" />
+                                            <stop offset="95%" stop-color="gold" />
+                                        </linearGradient>
+                                    </svg>
+                                </round-progress>
+                            </div>
+                        </div>
+                        <div flex="100" flex-gt-sm="50">
+                            <md-input-container layout="row">
+                                <label>Name</label>
+                                <input type="text" name="name" ng-model="report.name" disabled required>
+                            </md-input-container>
+                            <md-input-container layout="row" class="date-picker">
+                                <label>Start Date</label>
+                                <md-datepicker ng-model="report.startDate" disabled></md-datepicker required>
+                            </md-input-container>
+                            <md-input-container layout="row" class="date-picker">
+                                <label>End Date</label>
+                                <md-datepicker ng-model="report.endDate" disabled></md-datepicker required>
+                            </md-input-container>
+                            <div layout="row" layout-align="center center">
+                                <md-button type="button" class="md-raised md-primary" ng-disabled="reportForm.$invalid" ng-click="resetReport();">Reset</md-button>
+                            </div>
+                        </div>
+                    </form>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</div>

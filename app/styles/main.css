@@ -1,0 +1,110 @@
+/*--Custom styling starts here--*/
+
+.header,
+.footer {
+    padding: 0 5%;
+    background-color: #484743;
+    color: #fff;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.header h1 {
+    font-size: 26px;
+    margin: 14px 0;
+}
+
+.footer {
+    margin: -50px 0 0;
+}
+
+.main-content {
+    width: 90%;
+    margin: 0 auto;
+    min-height: 100%;
+    padding: 59px 0 50px;
+}
+
+.main-content md-pagination-wrapper {
+    width: 100% !important;
+}
+
+.main-content md-pagination-wrapper .md-tab {
+    width: 50%;
+}
+
+.main-content form {
+    margin: 50px 0 0;
+}
+
+.main-content md-datepicker {
+    display: block;
+}
+
+.progress-wrapper {
+    position: relative;
+    width: 250px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.progress-wrapper .progress {
+    position: absolute;
+}
+
+.main-content md-input-container {
+    margin: 30px 0;
+}
+
+.form-inner {
+    margin: 0 auto;
+}
+
+#report-form {
+    margin: 50px auto 0;
+}
+
+#report-form input {
+    border-bottom: 1px solid #dddddd !important;
+}
+
+.md-button.md-raised[disabled] {
+    cursor: no-drop;
+}
+
+
+/*--Date picker customization--*/
+
+.date-picker md-datepicker {
+    width: 100%;
+    overflow: visible;
+}
+
+.md-datepicker-button {
+    display: none !important;
+}
+
+.md-datepicker-input-container {
+    width: 100% !important;
+    margin: 0 !important;
+    border: none !important;
+}
+
+.date-picker label {
+    width: 100% !important;
+    left: 0 !important;
+}
+
+.md-datepicker-input-container input {
+    max-width: 2000px !important;
+    background: transparent !important;
+}
+
+.date-picker .dp-error {
+    margin-left: 0 !important;
+}
